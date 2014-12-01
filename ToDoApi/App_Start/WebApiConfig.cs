@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
@@ -24,6 +25,11 @@ namespace ToDoApi
             // Add CORS support for AngularToDo front end
             var cors = new EnableCorsAttribute("localhost:1619", "*", "*");
             config.EnableCors(cors);
+
+            // This assigns the text/html request type to return JSON instead of XML
+            // that way when the url is called from a browser it returns JSON.
+            config.Formatters.JsonFormatter.
+            SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
