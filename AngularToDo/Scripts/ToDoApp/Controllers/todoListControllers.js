@@ -1,10 +1,15 @@
-﻿var todoListControllers = angular.module('todoListControllers', ['todoDataService']);
+﻿
+angular
+    .module('todoApp')
+    .controller('todoListController', todoListController);
 
-todoListControllers.controller('todoListController', ['$scope', 'ToDoService',
-    function ($scope, ToDoService) {
-        $scope.toDos = ToDoService.getAll();
-    }]);
+todoListController.$inject['todoDataService'];
 
-todoListControllers.controller('todoDetailController', ['$scope', 'ToDoService',
-    function ($scope, ToDoService) {
-    }]);
+
+function todoListController(todoDataService)
+{
+    var vm = this;
+    vm.toDos = todoDataService.getAll();
+
+}
+

@@ -3,12 +3,12 @@
     ViewBag.Title = "ToDo";
 }
 <div ng-app="todoApp">
-    <div ng-controller="todoListController">
+    <div ng-controller="todoListController as tdl">
         <h2>ToDo</h2>
         <p>My ToDo's</p>
         <ul>
-            <li ng-repeat="toDo in toDos" style="{{toDo.overdueStyle}}">
-                <span>{{toDo.title}}</span>-<span>{{toDo.dueDate}}</span>
+            <li ng-repeat="toDo in tdl.toDos" >
+                <span>{{toDo.title}}</span>-<span style="{{toDo.overdueStyle}}">{{toDo.dueDate}}</span>
             </li>
         </ul>
     </div>

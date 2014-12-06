@@ -29,8 +29,8 @@ namespace AngularToDo
 
             bundles.Add(new ScriptBundle("~/bundles/todoapp").Include(
                     "~/Scripts/ToDoApp/app.js",
-                    "~/Scripts/ToDoApp/Controllers/*.js",
-                    "~/Scripts/ToDoApp/Services/*.js"
+                     "~/Scripts/ToDoApp/Services/*.js",
+                    "~/Scripts/ToDoApp/Controllers/*.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

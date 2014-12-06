@@ -1,32 +1,43 @@
-﻿var todoDataService = angular.module('todoDataService', []);
+﻿angular
+    .module('todoApp')
+    .factory('todoDataService', todoDataService);
 
-todoDataService.service('ToDoService',
-    function () {
 
-        this.add = function (todo) {
+todoDataService.$inject = ['$http'];
 
-        };
+function todoDataService($http) {
+    return {
+        add: add,
+        update: update,
+        remove: remove,
+        get: get,
+        getAll: getAll
+    };
 
-        this.update = function (todo) {
+    function add(todo) {
 
-        };
+    }
 
-        this.remove = function (todoId) {
+    function update(todo) {
 
-        };
+    }
 
-        this.get = function (todoId) {
+    function remove(todoId) {
 
-        };
+    }
 
-        this.getAll = function () {
-            var toDos = [];
+    function get(todoId) {
 
-            toDos.push({"title":"Get this", "dueDate":"12/1/14", "overdueStyle": "background-color:red"});
-            toDos.push({"title": "Do That", "dueDate":"1/1/15" });
-            toDos.push({"title": "Don't forget other thing", "dueDate":"1/15/15"});
+    }
 
-            return toDos;
-        };
+    function getAll() {
+        var toDos = [];
 
-    });
+        toDos.push({ "title": "Get this", "dueDate": "12/1/14", "overdueStyle": "background-color:red" });
+        toDos.push({ "title": "Do That", "dueDate": "1/1/15" });
+        toDos.push({ "title": "Don't forget other thing", "dueDate": "1/15/15" });
+
+        return toDos;
+    }
+
+};

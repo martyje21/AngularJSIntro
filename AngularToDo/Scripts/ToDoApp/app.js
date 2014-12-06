@@ -1,2 +1,5 @@
-﻿var todoApp = angular.module('todoApp', ['todoListControllers', 'todoDataService']);
+﻿angular
+    .module('todoApp', [
+        
+    ]);
 
