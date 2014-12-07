@@ -23,8 +23,9 @@ namespace ToDoApi
             config.MapHttpAttributeRoutes();
 
             // Add CORS support for AngularToDo front end
-            var cors = new EnableCorsAttribute("localhost:1619", "*", "*");
-            config.EnableCors(cors);
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors();
+
 
             // This assigns the text/html request type to return JSON instead of XML
             // that way when the url is called from a browser it returns JSON.

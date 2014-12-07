@@ -7,9 +7,9 @@ namespace ToDoApi.Models
 {
     public class ToDo
     {
-        public string Id { get; set; }
+        public string id { get; set; }
 
-        public string Title { get; set; }
+        public string title { get; set; }
 
         public DateTime dueDate { get; set; }
 

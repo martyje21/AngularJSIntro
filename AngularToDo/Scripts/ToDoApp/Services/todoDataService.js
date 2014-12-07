@@ -33,11 +33,18 @@ function todoDataService($http) {
     function getAll() {
         var toDos = [];
 
-        toDos.push({ "title": "Get this", "dueDate": "12/1/14", "overdueStyle": "background-color:red" });
-        toDos.push({ "title": "Do That", "dueDate": "1/1/15" });
-        toDos.push({ "title": "Don't forget other thing", "dueDate": "1/15/15" });
+        //toDos.push({ "title": "Get this", "dueDate": "12/1/14", "overdueStyle": "background-color:red" });
+        //toDos.push({ "title": "Do That", "dueDate": "1/1/15" });
+        //toDos.push({ "title": "Don't forget other thing", "dueDate": "1/15/15" });
 
-        return toDos;
+        return $http.get('http://localhost:19042/api/todos')
+            .then(getAllComplete);
+
+        function getAllComplete(response) {
+
+            return response.data;
+        }
+
     }
 
 };
