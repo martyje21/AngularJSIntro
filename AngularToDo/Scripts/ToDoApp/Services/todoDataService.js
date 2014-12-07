@@ -9,12 +9,42 @@
 
     function todoDataService($http, configService) {
         return {
+            getList: getList,
             add: add,
             update: update,
             remove: remove,
-            get: get,
-            getList: getList
+            get: get
         };
+
+
+        function getList() {
+            //var toDos = [];
+
+            //toDos.push({ "title": "Get this", "dueDate": "12/1/14", "overdueStyle": "background-color:red" });
+            //toDos.push({ "title": "Do That", "dueDate": "1/1/15" });
+            //toDos.push({ "title": "Don't forget other thing", "dueDate": "1/15/15" });
+
+            return $http.get(configService.todoApiUrl())
+                .then(getAllComplete);
+
+            function getAllComplete(response) {
+                var today = new Date();
+
+                var len = response.data.length;
+                var todos = response.data;
+
+                for (var i = 0; i < len; i++) {
+                    var dd = new Date(todos[i].dueDate);
+                    if (dd < today)
+                        todos[i].overdueStyle = "background-color:red";
+
+                    todos[i].formattedDueDate = (dd.getMonth() + 1) + "/" + dd.getDate() + "/" + dd.getFullYear();
+
+                }
+
+                return todos;
+            }
+        }
 
         function add(todo) {
 
@@ -32,31 +62,6 @@
 
         }
 
-        function getList() {
-            var toDos = [];
-
-            toDos.push({ "title": "Get this", "dueDate": "12/1/14", "overdueStyle": "background-color:red" });
-            toDos.push({ "title": "Do That", "dueDate": "1/1/15" });
-            toDos.push({ "title": "Don't forget other thing", "dueDate": "1/15/15" });
-
-            //return $http.get(configService.todoApiUrl())
-            //    .then(getAllComplete);
-        }
-
-        function getAllComplete(response) {
-            var today = new Date();
-
-            var len = response.data.length;
-            var todos = response.data;
-
-            for (var i = 0; i < len; i++) {
-                if (new Date(todos[i].dueDate) < today)
-                    todos[i].overdueStyle = "background-color:red";
-
-            }
-
-            return todos;
-        }
 
     };
 
