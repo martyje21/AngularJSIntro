@@ -1,5 +1,7 @@
-﻿angular
-    .module('todoApp', [
-        
-    ]);
+﻿(function () {
+    angular
+        .module('todoApp', [
 
+        ]);
+
+})();

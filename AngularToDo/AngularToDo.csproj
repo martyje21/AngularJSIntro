@@ -969,7 +969,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ToDoApp\app.js" />
-    <Content Include="Scripts\ToDoApp\Controllers\todoListControllers.js" />
+    <Content Include="Scripts\ToDoApp\Controllers\todoListController.js" />
+    <Content Include="Scripts\ToDoApp\Services\configService.js" />
     <Content Include="Scripts\ToDoApp\Services\todoDataService.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

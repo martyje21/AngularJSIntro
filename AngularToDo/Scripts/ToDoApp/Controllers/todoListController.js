@@ -1,9 +1,10 @@
-﻿
+﻿(function () {
+
 angular
     .module('todoApp')
     .controller('todoListController', todoListController);
 
-todoListController.$inject['todoDataService'];
+todoListController.$inject = ['todoDataService'];
 
 
 function todoListController(todoDataService)
@@ -21,7 +22,7 @@ function todoListController(todoDataService)
 
 
     function getToDos() {
-        return todoDataService.getAll()
+        return todoDataService.getList()
             .then(function (data) {
                 vm.toDos = data;
                 return vm.toDos;
@@ -30,3 +31,4 @@ function todoListController(todoDataService)
 
 }
 
+})();
