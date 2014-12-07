@@ -35,8 +35,12 @@
 
                 for (var i = 0; i < len; i++) {
                     var dd = new Date(todos[i].dueDate);
-                    if (dd < today)
-                        todos[i].overdueStyle = "background-color:red";
+                    if (dd < today){                    
+                        todos[i].overdue = true;
+                    }
+                    else {
+                        todos[i].overdue = false;
+                    }
 
                     todos[i].formattedDueDate = (dd.getMonth() + 1) + "/" + dd.getDate() + "/" + dd.getFullYear();
 
